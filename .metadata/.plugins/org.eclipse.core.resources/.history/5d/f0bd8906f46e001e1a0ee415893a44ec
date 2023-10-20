@@ -1,0 +1,29 @@
+package com.ruby.java.test1;
+
+public class Armor {
+	private String name;
+	private int height;
+	private int speed;
+	private String color;
+	private boolean isFly;
+	
+	
+	public void speedUp(int value) {
+		speed += value;
+	}
+	
+	
+	public void setName() {
+		String value = "mark6"; 
+		name = value;
+	}
+	public void setHeight(int value) {
+		height = value;
+	}
+	int takeOff() {
+		System.out.println("비행하다");
+		
+		System.out.println("아이언맨");
+		return 0;
+	}
+}

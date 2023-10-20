@@ -1,0 +1,10 @@
+package Chap_05;
+
+public class Armor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
