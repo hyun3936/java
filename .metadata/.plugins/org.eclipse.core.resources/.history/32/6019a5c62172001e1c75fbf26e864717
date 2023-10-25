@@ -1,0 +1,9 @@
+package StarCraft;
+
+public class Marine extends Unit{
+	
+	public Marine() {
+		System.out.println("Marine()");
+	}
+
+}

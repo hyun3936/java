@@ -1,0 +1,42 @@
+package StarCraft;
+
+public class Unit {
+	
+private int hp;
+private String name,attack;
+
+
+
+public String getAttack() {
+	return attack;
+}
+public void setAttack(String attack) {
+	this.attack = attack;
+}
+
+
+public int getHp() {
+	
+	if (hp == 0)
+	System.out.println( name + "가 사망했습니다.");
+	
+	return 0;
+
+}
+public void setHp(int hp) {
+	this.hp = hp;
+}
+
+
+
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+
+
+
+
+}

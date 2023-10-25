@@ -1,0 +1,32 @@
+package StarCraft;
+
+public class Game {
+	
+private long health;
+
+public Game(Long health) {
+	this.health = health;
+}
+
+
+public long getHealth() {
+	return health;
+}
+
+public void setHealth(long health) {
+	this.health = health;
+}
+
+
+
+public void attack() {
+	System.out.println("공격합니다.");
+}
+
+
+
+
+
+
+
+}

@@ -1,0 +1,10 @@
+package StarCraft;
+
+public class Marine extends Game{
+	
+	public Marine(long health) {
+		Marine m = 
+		System.out.println("Marine()");
+	}
+
+}
