@@ -1,0 +1,16 @@
+package Chap_08;
+
+public class HRSTest2 {
+public static void clacTax(Emlpoyee e) {
+	if(e instanceof Salesman) {
+		System.out.println("Salesman 입니다.");
+	} else if(e instanceof Manager) {
+		System.out.println("Manager 입니다.");
+	}else if(e instanceof Manager) {
+		System.out.println("Manager 입니다.");
+	}else {
+		System.out.println("Manager 입니다.");
+	}
+}
+	
+}
