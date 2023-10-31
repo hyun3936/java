@@ -1,9 +1,0 @@
-package StarCraft;
-
-public class Marine {
-	
-	public Marine() {
-		System.out.println("Marine()");
-	}
-
-}

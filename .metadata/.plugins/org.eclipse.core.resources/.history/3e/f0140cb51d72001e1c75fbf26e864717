@@ -1,6 +1,0 @@
-package Vehicle;
-
-public class Sedan {
-"나는 Sedan입니다."
-	5인승
-}

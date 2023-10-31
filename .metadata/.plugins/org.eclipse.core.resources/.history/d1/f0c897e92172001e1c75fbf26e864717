@@ -1,6 +1,0 @@
-package StarCraft;
-
-public class Wraith extends Game{
-	
-
-}

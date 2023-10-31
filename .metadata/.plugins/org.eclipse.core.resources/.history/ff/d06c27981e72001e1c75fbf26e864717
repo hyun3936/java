@@ -1,7 +1,0 @@
-package StarCraft;
-
-public class Unit {
-	
-private String hp;
-
-}
