@@ -15,42 +15,13 @@ public class MyLinkedList {
 			this.data = data;
 		}
 	}
-
-//	private Node find(String data) {
-//		Node next = head;
-//		do {
-//			if(next.data.equals(data))
-//				return next;
-//			next = next.next;
-//		}while (next.next != null);
-//		return null;
-//	}
-	
-	public void delete(String data) {
-		Node node = find(data);
-		
-		Node p = node.prev;
-		Node n = node.next;
-		if(p != null && n != null) {
-			p.next = n;
-			n.prev = p;
-		}else {
-			if(p == null) {
-				n.prev = null;
-			}
-			if (n == null) {
-				p.next = null;
-			}
-		}
-	}
-	
 	
 	// 노드를 추가하는 메서드
 	public void add(String prev, String data) {
 		// 새로운 노드를 생성한다.
-		Node newNode = new Node(data));
+		Node newNode = new Node(data);
 		if (head == null) { // 리스트의 시작점인 head가 아무것도 없으면, 즉 null이면  
-			add(data);  // 새로 만든 노드를 시작점으로 설정한다.
+			head = newNode;  // 새로 만든 노드를 시작점으로 설정한다.
 		}else {
 			//여기에 들어온다는 의미는 head에 이미 노드가 설정되어 있다는 의미
 			// 최소 1개 이상의 노드가 리스트에 존재한다는 의미가 된다.
@@ -58,7 +29,7 @@ public class MyLinkedList {
 			// 시작 노드값을 임시 변수 next에 설정
 			Node next = head;
 			
-			while (next.link != null) { // 만약 현재 노드 next에 연결된 노드가 있는 동안 루프
+			while (next.link != null) { // 현재 노드 next에 연결된 노드가 있는 동안 루프
 				next = next.link; // 다음 노드를 현재 노드로 설정
 			}
 			
@@ -67,33 +38,8 @@ public class MyLinkedList {
 			next.link = newNode;
 		}
 	}
-			
-			
-//			Node newNode = new Node(data); 
-//			newNode.prev = node;
-//			newNode.next = node.next;
-//			node.next.prev = newNode;
-//			node.next = newNode;
-		
-
 	
-	
-
-	public void add( String data) {
-		Node newNode = new Node(data);
-
-		if (head == null) {
-			head = newNode;
-
-		} else {
-			Node next = head;
-			while (next.link != null) {
-				next = next.link;
-			}
-			next.link = newNode;
-		}
-	}
-
+			
 	//현재 까지 입력된 리스트를 콘솔 화면에 출력한다.
 	
 	public void print() {

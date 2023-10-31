@@ -13,19 +13,78 @@ public class MyLinkedList2 {
 			this.data = data;
 		}
 	}
+	
+	private Node find(String data) {
+		if (head == null) return null;
+		
+		Node next = head;
+		do {
+			if(next.data.equals(data))
+				return next;
+			next = next.next;
+		}while (next.next != null);
+		return null;
+	}
+	
+	public void delete(String data) {
+		Node node = find(data);
+		
+		if (node == null)   return;
+		
+		Node p = node.prev;
+		Node n = node.next;
+		if(p != null && n != null) {
+			p.next = n;
+			n.prev = p;
+		}else if(p == null && n != null) {
+				n.prev = null;
+				head = n;
+		}else if (n != null && n == null) {
+				p.next = null;
+			}
+		}
+	
+	private boolean isDuplicated(String data) {
+		Node fnode = find(data);
+		if (fnode != null) {
+			System.out.println("["+data+"]는 이미 존재하는 데이터입니다.");
+			return true;
+		}
+		return false;
+	}
+	
+	
+	public void add(String prev, String data) {
+		if (isDuplicated(data))	return;
+
+		Node node = find(prev);
+		if (node == null)
+			add(data);
+		else {
+			Node newNode = new Node(data);
+			newNode.prev = node;
+			newNode.next = node.next;
+			node.next.prev = newNode;
+			node.next = newNode;
+		}
+	}
+	
+	
+	
 
 	public void add(String data) {
-		Node newNode = new Node(data);
+		if (isDuplicated(data))	return;
 
+		Node temp = head;
+		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
 		} else {
-			Node next = head;
-			while (next.next != null) {
-				next = next.next;
+			while (temp.next != null) {
+				temp= temp.next;
 			}
-			next.next = newNode;
-			newNode.prev = next; // 이 한줄 쓰면 양방향
+			temp.next = newNode;
+			newNode.prev = temp; // 이 한줄 쓰면 양방향
 		}
 	}
 
