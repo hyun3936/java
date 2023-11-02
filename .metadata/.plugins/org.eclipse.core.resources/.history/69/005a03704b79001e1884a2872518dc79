@@ -1,0 +1,13 @@
+package Chap_10.arraylist;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test01_ArrayList {
+	public static void main(String[] args) {
+		
+		List<Person> list = new ArrayList<>(); // person타입의 데이터 저장
+				
+	}
+
+}
