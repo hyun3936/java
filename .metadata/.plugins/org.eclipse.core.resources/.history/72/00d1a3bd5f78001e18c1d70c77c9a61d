@@ -1,0 +1,19 @@
+package Chap_09;
+
+public class Test12 {
+public static void main(String[] args) {
+	int n1 = 10;
+	Integer obj1 = n1; 
+	
+	Integer obj2 = Integer.valueOf("20");
+	int n2 = obj2; //obj2.intValue()
+	
+	Integer obj3 = 30;  // 
+	
+	int n3 = obj3 + 40;
+	
+	System.out.println();
+	System.out.println();
+	System.out.println();
+}
+}

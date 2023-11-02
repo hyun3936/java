@@ -1,0 +1,11 @@
+package Chap_09;
+
+public class MyObject {
+	public String toString() {
+		rturn "내가 만든 객체";
+		
+		
+		
+	}
+
+}
