@@ -1,0 +1,33 @@
+package Chap_11;
+
+public class ExTest {
+	
+	public void c() throws Exception{
+		try {
+		System.out.println("C1");
+		int v = 10 / 0;
+		}catch(Exception e) {
+		System.out.println("C2");
+		} finally {
+			System.out.println("C-finally");
+		}
+	}
+	
+	public  void b() throws Exception{
+		System.out.println("B1");
+		c();
+		System.out.println("B2");		
+	}
+	
+	public  void a() {
+		System.out.println("A1");
+		b();
+		System.out.println("A2");
+	}
+	
+	public static void main(String[] args) {
+		
+		ExTest et = new ExTest();
+		a();  // static이 있기에.
+	}
+}

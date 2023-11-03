@@ -1,0 +1,19 @@
+package Chap_11;
+
+public class ExTest {
+
+	Thread.sellp(); // m/s 단위
+	
+	public void c() {
+		
+	}
+public void b() {
+		
+	}
+public void a() {
+	
+}
+	public static void main(String[] args) {
+		a();
+	}
+}
