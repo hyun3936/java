@@ -1,0 +1,12 @@
+package Chap_10.arraylist;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayList_Star {
+	
+	public static void main(String[] args) {
+		List<Star> list = new ArrayList<>();
+	}
+
+}

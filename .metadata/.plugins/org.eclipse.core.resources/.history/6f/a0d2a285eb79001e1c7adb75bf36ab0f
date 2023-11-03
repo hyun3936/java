@@ -1,0 +1,19 @@
+package Chap_10.arraylist;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayList_Star {
+	
+	public static void main(String[] args) {
+		List<Star> list = new ArrayList<>();
+		
+		
+		// 배열 객체 생성
+		
+		// 저장할 문자열을 생성해서 ArrayList에 저장
+		
+		// ArrayList저장된 문자열을 출력
+	}
+
+}
