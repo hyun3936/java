@@ -1,4 +1,4 @@
-package Chap_08;
+package Chap_08; // 다형성과 내부 클래스
 
 enum Status{
 	READY, SEND, COMPLETE, CLOSE

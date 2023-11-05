@@ -1,1 +1,0 @@
-package com.ruby.java.test2;

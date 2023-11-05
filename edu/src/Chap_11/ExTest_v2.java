@@ -1,9 +1,10 @@
-package Chap_11;
+package Chap_11; // 예외 처리하기
 
 public class ExTest_v2 { // 예외 던지기 : throws 문 연습.
 
 	public void d() {
 		throw new IndexOutOfBoundsException("에러가 발생했습니다.");
+		// 이렇게 길게 쓸필요없이 그냥 Exception만 적어도됨. 부모 클래스 이기 때문.
 
 //		int aa = 0; // 코드가 이 줄 까지 닿지 않음.
 	}

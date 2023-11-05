@@ -33,7 +33,7 @@ public class Test39 {
 			sum += arr[i][i];
 		}
 
-		// 배열의 대각 합을 출력
+		// 배열의 대각 합을 출력 (5*5 대각선) 오른쪽 대각선 순회
 		System.out.println("합계 : " + sum);
 	}
 

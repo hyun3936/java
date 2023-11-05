@@ -1,4 +1,4 @@
-package Chap_04;
+package Chap_04; // 배열 : 데이터 나열하기
 
 import java.util.Scanner;
 
@@ -26,12 +26,13 @@ public class Test32 {
 //	}
 	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in); // 사용자로부터 데이터를 입력 받기 위해 Scanner 클래스의 객체 생성.
 
 		int arr[] = new int[3];
+		// arr.length  ==> 3
 
 		System.out.println("국어점수 : ");
-		arr[0] = sc.nextInt();
+		arr[0] = sc.nextInt();  // Scanner 클래스는 자료형에 따라 알맞은 함수를 써야한다. 보통 next___ 이런식이다.
 
 		System.out.println("영어점수 : ");
 		arr[1] = sc.nextInt();
@@ -42,11 +43,12 @@ public class Test32 {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
+		
 		int avg = (arr[0] + arr[1] + arr[2]) / 3;
 		System.out.println("평균은 " + avg);
 		
 		
-		System.out.println("확장된 for");
+		System.out.println("확장된 for"); // for each문 이라고도 함. 기존for문보다 간결, 무조건 배열.
 		for(int i : arr) {
 			System.out.println(i);
 		}

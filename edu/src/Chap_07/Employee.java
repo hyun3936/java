@@ -1,4 +1,4 @@
-package Chap_07;
+package Chap_07; // 상속과 인터페이스
 
 public class Employee extends Person {
 	private String dept;

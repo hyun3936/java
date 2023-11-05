@@ -1,4 +1,4 @@
-package Chap_10;
+package Chap_10; // 컬렉션 API 활용하기
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,7 +6,7 @@ public class ThisTest {
 	public void first() {
 		int i = 2;
 		int j = 3;
-		this.i = i + j;
+		this.i = i + j;  // 단순히 i면 지역변수i 이지만, this.i는 현재 메소드가 속한 인스턴스 주소값이 저장.
 		
 		second(4);
 	}
@@ -18,6 +18,6 @@ public class ThisTest {
 	
 	public static void main(String[] args) {
 		ThisTest exam = new ThisTest();
-		exam.first();
+		exam.first(); //F5:Step into debug
 	}
 }

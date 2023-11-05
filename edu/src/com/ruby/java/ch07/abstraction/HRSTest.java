@@ -18,7 +18,7 @@ class Salesman extends Employee {
 	}
 }
 
-public class Consultant extends Employee {
+class Consultant extends Employee {
 	public void calcSalary() {
 		System.out.println("Consultant 급여 = 기본급 + 컨설팅 특별 수당");
 	}

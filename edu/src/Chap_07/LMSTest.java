@@ -1,7 +1,5 @@
 package Chap_07;
 
-import com.ruby.java.ch07.abstraction.Employee;
-
 public class LMSTest {
 	public static void main(String[] args) {
 		Employee e = new Employee();

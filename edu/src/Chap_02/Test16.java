@@ -1,8 +1,8 @@
-package edu;
+package Chap_02;
 public class Test16 {
 	public static void main(String[] args) {
 		int a = 23;
-		byte b = (byte)a; // type casting이라 한다
+		byte b = (byte)a; // type casting 이라고 한다
 		System.out.println(b); // 23
 		
 		byte c = 23;

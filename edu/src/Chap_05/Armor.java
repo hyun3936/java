@@ -1,6 +1,6 @@
-package Chap_05;
-// 클래스를 기술한 것이다
-public class Armor {
+package Chap_05; // 객체지향 알기
+
+public class Armor {  // 클래스를 기술한 것이다
 	
 	// 필드
 	private String name;
@@ -11,7 +11,7 @@ public class Armor {
 	
 	// 메소드
 	void takeOff() {
-		System.out.println(name); // 접근하는 곳
+//		System.out.println(name); // 접근하는 곳
 	}
 	void land() {}
 	void shootLaser() {}
@@ -23,6 +23,7 @@ public class Armor {
 		return value;
 	}
 	
+	// 함수, 즉 Method를 실행하는 부분
 	public static void main(String[] args) {
 		int y;
 		y = f(2);

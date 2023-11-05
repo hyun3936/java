@@ -1,4 +1,4 @@
-package edu;
+package Chap_02; // 데이터 활용
 
 public class Test11 {
 

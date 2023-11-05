@@ -5,16 +5,18 @@ public class HRSTest2 {
 	// if(참조변수 instanceof 객체 타입){실행문;}
 	
 
-	public static void clacTax(Employee e) {
+	public static void calcTax(Employee e) {
 		if (e instanceof Salesman) {
-			System.out.println("Salesman 입니다.");
-			System.out.println(e.annual_sales);
+			Salesman s = (Salesman) e;
+			s.annual_sales = 6500000;
+			System.out.println("Salesman 입니다." + s.annual_sales);
 		} else if (e instanceof Manager) {
-			System.out.println("Manager 입니다.");
-			System.out.println(e.num_team);
+			Manager m = (Manager) e;
+			m.num_team = 5;
+			System.out.println("Manager 입니다." + m.num_team);
 		} else if (e instanceof Consultant) {
-			System.out.println("Consultant 입니다.");
-			System.out.println(e.num_project);
+			Consultant c = (Consultant) e;
+			System.out.println("Consultant 입니다." + c.num_project);
 		} else {
 			System.out.println("Employee 입니다.");
 		}

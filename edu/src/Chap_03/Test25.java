@@ -1,9 +1,10 @@
 package Chap_03;
 
-public class Test25 {
+public class Test25 {    // 등차수열
 	public static void main(String[] args) {
 		int a = 0;
 		int d = 5;
+
 //		for (int i = 0; i < 5; i++) {
 //			System.out.println("i = " + i + "     a = " + a);
 //			a += d;
@@ -15,13 +16,11 @@ public class Test25 {
 //			i++;
 //		}
 //	}
-//		int i = 0;
-//		do {
-//			System.out.println("i = " + i + "     a = " + a);
-//			a += d;
-//			i++;
-//		}while(i < 5);
-		
-		
-		
+		int i = 0;
+		do {
+			System.out.println("i = " + i + "     a = " + a);
+			a += d;
+			i++;
+		} while (i < 5);
+	}
 }

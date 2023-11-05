@@ -10,6 +10,7 @@ abstract class Employee {
 }
 
 class Salesman extends Employee {
+	int annual_sales; // 연간 판매 실적
 	public void calcSalary() {
 		System.out.println("Salesman 급여 = 기본급 + 판매수당");
 	}
@@ -20,6 +21,7 @@ class Salesman extends Employee {
 }
 
 class Consultant extends Employee {
+	int num_project; // 컨설팅 참여 수
 	public void calcSalary() {
 		System.out.println("Consultant 급여 = 기본급 + 컨설팅 특별 수당");
 	}
@@ -30,8 +32,12 @@ class Consultant extends Employee {
 }
 
 class Manager extends Employee {
+	int num_team; // 관리 팀  수
 	public void calcSalary() {
 		System.out.println("Manager 급여 = 기본급 + 팀 성과 수당");
+	}
+	public void calcBonus() {
+		System.out.println("Manager 보너스 = 기본급 * 12 * 6");
 	}
 }
 
@@ -55,9 +61,13 @@ public class HRSTest {
 	}
 
 	public static void main(String[] args) {
-//		Salesman s = new Salesman();
-//		Consultant c = new Consultant();
-//		Director d = new Director();
+		Salesman s = new Salesman();
+		Consultant c = new Consultant();
+		Director d = new Director();
+		
+		calcTax(s);
+		calcTax(c);
+		calcTax(d);
 //		
 //		System.out.println(s.toString());
 //		System.out.println(c.toString());
@@ -89,6 +99,7 @@ public class HRSTest {
 		Object m1 = new Manager();    // 라인 32에 Manager가 abstract class Manager되어있으면 빨간줄이 나오는데 abstract를 지우면 빨간줄 사라짐.
 		Employee m2 = new Manager();
 		Manager m3 = new Manager();
+//		Director m4 = new Manager(); // 오류발생 Director는 Manager의 자손
 		
 		Object arr[] = new Object[6];
 		arr[0] = s1;

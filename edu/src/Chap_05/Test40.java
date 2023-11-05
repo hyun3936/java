@@ -34,7 +34,7 @@ public class Test40{
 //	System.out.println("sum " + s );
 //}
 	
-private static double avg(int...a) {
+private static double avg(int...a) { // 가변길이 인자: 같은 타입의 데이터들을 오버로딩없이 인자의 갯수 다르게 호출
 	double sum = 0.0;
 	for(int i = 0; i < a.length ;i++) sum +=a[i];
 	return sum/a.length;

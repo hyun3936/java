@@ -1,7 +1,8 @@
 package Chap_03;
 
-public class Test31 {
+public class Test31 { // 구구단 만들기 (반복문 중첩)
 
+	// for 문으로 구구단 만들기
 //	public static void main(String[] args) {
 //		
 //	int i = 0;
@@ -17,13 +18,13 @@ public class Test31 {
 //
 //    }
 
+	// while 문으로 구구단 만들기
 	public static void main(String[] args) {
 
 		int i = 1;
-		int j = 1;
-
+	
 		while (i < 10) { 
-			j=1; // ★이부분 놓쳤음. 변수값의 현재값을 항상 생각하기. 1~9 반복하니까 9를 다시 1로 초기화 시켜주기.
+			int j=1; // ★이부분 놓쳤음. 변수값의 현재값을 항상 생각하기. 1~9 반복하니까 9를 다시 1로 초기화 시켜주기.
 			while (j < 10) {
 				System.out.print(j + " * " + i + " = " + ( i*j ) + "    " ); 
 				j++;
@@ -33,7 +34,7 @@ public class Test31 {
 		}	
 	}
 }
-		
+		// do while 문으로 구구단 만들기
 //		int i = 1;
 //		do {
 //			int j = 1;

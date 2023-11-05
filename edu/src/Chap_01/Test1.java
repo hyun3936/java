@@ -1,4 +1,4 @@
-package Chap_01;
+package Chap_01; //자바 소개 및 개발환경 구축
 
 public class Test1 {
 
