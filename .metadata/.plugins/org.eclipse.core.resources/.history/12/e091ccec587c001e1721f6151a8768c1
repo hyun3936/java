@@ -1,0 +1,22 @@
+package Chap_13;
+
+ class Bag(T) {
+	 private T thing;
+	 
+	 public Bag(T thing) {
+		 this.thing = thing;
+	 }
+	 public T getThing() {
+		 return thing;
+	 
+ }
+
+
+
+
+
+
+
+public class BagTest {
+
+}

@@ -4,7 +4,7 @@ public class ExTest {
 	
 	public void c() throws Exception{
 		System.out.println("C1");
-		int v = 10 / 0;
+		// int v = 10 / 0;
 		System.out.println("C2");
 
 			System.out.println("C-finally");

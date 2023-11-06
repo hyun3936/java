@@ -1,0 +1,22 @@
+package Chap_12;
+
+import java.io.File;
+
+public class Test05 {
+	public static void main(String[] args) {
+		try {
+			File dir = new File("c:\\work");
+			dir.mkdir();
+			
+			
+			File file = new File(dir, "file1.txt");
+			file.createNewFile();
+			
+			//파일 또는 디렉터리 여부 판단
+			if (dir.isDirectory())
+				System.out.println(dir.getName() + "은 디렉터리입니다.");
+				
+				
+		}
+	}
+}
