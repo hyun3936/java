@@ -1,0 +1,22 @@
+package Chap_13; // 제너릭 인터페이스
+
+interface Maximum <T extends Comparable<T>> implements Maximum<T> {
+	T max();
+	
+	
+	NumUtil(T[] value){
+		this.value = value;
+	}
+}
+
+
+
+
+
+
+
+
+
+public class GenInterfaceTest {
+	
+}

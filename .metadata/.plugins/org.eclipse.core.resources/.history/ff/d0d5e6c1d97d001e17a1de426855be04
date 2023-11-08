@@ -1,0 +1,46 @@
+package com.ruby.java.ch13.boundGen; // 타입 제한
+
+
+class Bag <T extends Solid>{
+	private T thing;
+	
+	public Bag(T thing) {
+		this.thing = thing;
+	}
+
+	public T getThing() {
+		return thing;
+	}
+
+	public void setThing(T thing) {
+		this.thing = thing;
+	}
+	
+
+	void showType() {
+		System.out.println("T의 타입은 " + thing.getClass().getName());
+	}
+}
+
+class Solid {}
+class Liquid {}
+
+class Book extends Solid{}
+class PensilCase extends Solid{}
+class Notebook extends Solid{}
+
+class Water extends Solid{}
+class Coffe extends Solid{}
+
+public class BagTest {
+
+	public static void main(String[] args) {
+		
+		Bag<Book> bag = new Bag<>(new Book());
+		Bag<Book> bag = new Bag<>(new Book());
+		Bag<Book> bag = new Bag<>(new Book());
+		
+		Bag<Book> bag = new Bag<>(new Book());
+		Bag<Book> bag = new Bag<>(new Book());
+	}
+}

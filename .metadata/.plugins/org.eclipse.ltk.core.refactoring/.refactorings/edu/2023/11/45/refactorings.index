@@ -23,3 +23,8 @@
 1699233382072	Move file
 1699233454246	Move 'a.txt' to 'edu'
 1699241628371	Delete element
+1699409834195	Rename package 'com.ruby.java.ch07.abstraction'
+1699409857228	Rename package 'com.ruby.java.ch13.boundGen'
+1699409864935	Rename package 'com.ruby.java.ch13.multiGen'
+1699409873893	Rename package 'com.ruby.java.ch13.nongen'
+1699409883447	Rename package 'com.ruby.java.ch13.wildCard'
