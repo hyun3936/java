@@ -1,0 +1,12 @@
+package Chap_14;
+
+interface MyInerface {
+	public void print();
+}
+
+
+
+
+public class Test01 {
+
+}
