@@ -18,7 +18,7 @@ class Student {
 
 }
 
-public class 객체배열정렬comparator {
+public class 객체배열정렬comparator { 
 	static void sortStudent(Student[] data, Comparator<Student> comp) {
 		Student temp;
 		for (int i = 0; i < data.length; i++)

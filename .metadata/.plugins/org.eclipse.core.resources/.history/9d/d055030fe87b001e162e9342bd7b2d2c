@@ -1,6 +1,0 @@
-package Chap_05.Unit;
-
-public class Wraith extends Unit{
-	
-
-}

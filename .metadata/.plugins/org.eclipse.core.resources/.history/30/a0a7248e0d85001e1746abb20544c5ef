@@ -1,0 +1,15 @@
+package Chap_2장기본자료구조;
+
+public class intArray {
+	static int maxOf(int[] a) {  //  함수 호출, 매개변수 전달 => 배열이름 그대로쓴다, return값의 타입
+		
+	}
+	
+	
+	public static void main(String[] args) { 
+		
+		int [] a  = new int[5];
+		int [] b = {1,2,5,4,7};
+		int result = maxOf(b);
+	}
+}

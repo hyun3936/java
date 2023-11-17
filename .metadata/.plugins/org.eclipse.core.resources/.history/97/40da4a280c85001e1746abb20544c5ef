@@ -1,0 +1,9 @@
+package Chap_2장기본자료구조;
+
+public class intArray {
+	public static void main(String[] args) {
+		
+		int [] a = new int[5];
+		int [] b = {1,2,3,4,5};
+	}
+}

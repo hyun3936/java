@@ -1,8 +1,0 @@
-package TESTsh;
-
-// 24개의 원소를 가지는 정수형 1차원 배열을 선언해서 랜덤으로 값을 입력
-
-public class test01 {
-
-	int [] array = new int[24];
-}
