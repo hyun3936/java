@@ -1,0 +1,67 @@
+package Chap_3장검색알고리즘;
+
+
+
+	//3장 - 1번 실습 과제 > 2번 실습: 스트링 객체의 정렬과 이진 탐색 > 3번 실습: 객체 정렬과 이진 탐색
+	//comparator 구현 실습
+	import java.util.Arrays;
+import java.util.Random;
+	public class 정수배열이진탐색 {
+		static void inputData(int [] data) {
+			// 난수 생성 입력
+			Random rd = new Random();
+			for (int i=0; i<data.length;i++) {
+				data[i] = rd.nextInt(10); // .nextInt 선택할때 그냥 Int하면 엄청큰수가 나올 수있다. but, bound를 선택하면 10입력하면 10이하의 수만 나옴.
+			}
+		}
+		
+		static void showData(int [] data) {
+			for(int st : data) // for(변수선언 : 배열 변수명)
+				System.out.print(data + " "); // 실행문;
+		}
+		
+		static int sortData(int [] data){
+			for(int i=0;i<data.length;i++) {
+				for (int j=0; j < data.length; j++) {
+					if(data[i]>data[j]) {
+					int temp = data[i];
+					data[i] = data[j];
+					data[j] = temp;
+					}
+				}
+			}
+			return 0;
+		}
+		static int linearSearch(int[] data, int key) {
+			for(int i=0; i<data.length;i++) {
+				if (key == data[i]) {
+					System.out.println("찾았습니다.");
+					return i;//검색 성공(인덱스를 반환) // 여기서 break를 쓰면 다음줄이 실행되니까, 여기서 끝내게 그냥 return. void라 반환값은 따로 없음.
+				}
+			}
+			System.out.println("없습니다.");
+			return -1; // 검색실패(-1을 반환)
+		}
+		
+		public static void main(String[] args) {	
+			
+			int []data = new int[10];
+			inputData(data);
+			showData(data);
+			sortData(data);
+			System.out.println();
+			for (int num: data) {
+				System.out.print(num+" ");
+			}
+			int key = 33;
+			int result = linearSearch(data, key);
+			System.out.println("\nlinearSearch(): result = " + result);
+
+			key = 39;
+			// result = binarySearch(data, key);
+			// System.out.println("\nbinarySearch(): result = " + result);
+			int idx = Arrays.binarySearch(data, key);
+			System.out.println("\nArrays.binarySearch(): result = " + result);
+
+		}
+	}
