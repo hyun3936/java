@@ -1,0 +1,58 @@
+package Chap_2장기본자료구조;
+
+class PhyscData2 implements Comparable<PhyscData2>{
+	
+	String name;
+	int height;
+	double vision;
+	
+	public PhyscData2(String name, int height, double vision) { // 추상메서드?
+		this.name = name;
+		this.height = height;
+		this.vision = vision;
+	}
+	
+	@Override 
+	//이름순
+	public int compareTo(PhyscData2 p) {
+		if(name.compareTo(p.name)==0)
+			if(height-p.height==0)
+				return (int) (vision-p.vision);
+			else return height-p.height;
+		
+		else return name.compareTo(p.name);
+	}
+	//자리 정하기
+	public int compareTo2(PhyscData2 p) {
+		if(height-p.height==0)
+			if((int)(vision-p.vision)==0)
+				return name.compareTo(p.name);
+			else return (int) (vision-p.vision);
+		else return height-p.height;
+	}
+	
+
+}
+public class 객체배열정렬 {
+
+	public static void main(String[] args) {
+		PhyscData2[] data = {
+				new PhyscData2("홍길동", 162, 0.3),
+				new PhyscData2("홍동", 164, 1.3),
+				new PhyscData2("홍길", 152, 0.7),
+				new PhyscData2("김홍길동", 172, 0.3),
+				new PhyscData2("이길동", 182, 0.6),
+				new PhyscData2("박길동", 167, 0.2),
+				new PhyscData2("최길동", 169, 0.5),
+		};
+		showData(data);
+		System.out.println("\n"+"-".repeat(10)+"By Object Name"+"-".repeat(15));
+		sortData(data);
+		showData(data);
+		System.out.println("\n"+"-".repeat(10)+"By Object Height"+"-".repeat(15));
+		sortData2(data);
+		showData(data);
+	}
+
+
+}

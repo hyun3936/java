@@ -122,6 +122,19 @@ class FruitNameComparator implements Comparator<Fruit3> {
 			result3 = binarySearch(arr, newFruit3, cc_price);
 			System.out.println("\nbinarySearch() 조회결과::" + result3);
 			// */
+			
+			
+			
+			
+			
+//			static void showData(PhyscData[]arr) {
+//			System.out.println();
+//			for (PhyscData fruit: arr) {
+//				System.out.print(fruit+" ");
+//			}
+//			System.out.println();
+		//}
+			
 		}
 	}
 }
