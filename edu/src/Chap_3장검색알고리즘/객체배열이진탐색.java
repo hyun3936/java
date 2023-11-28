@@ -3,7 +3,7 @@ package Chap_3장검색알고리즘;
 import java.util.Arrays;
 
 //5번 실습 - 2장 실습 2-14를 수정하여 객체 배열의 정렬 구현
-class PhyscData implements Comparable_prac<PhyscData> {
+class PhyscData implements Comparable<PhyscData> {
 	String name;
 	int height;
 	double vision;
