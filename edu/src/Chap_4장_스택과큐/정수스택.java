@@ -1,4 +1,4 @@
-package Chap_4장_스택과큐;
+package Chap_4장_스택과큐;  // 4-1 정수스택
 
 /*
  * 교재에 있는 소스코드
@@ -30,16 +30,29 @@ class IntStack {
 //--- 생성자(constructor) ---//
 	public IntStack(int maxlen) {
 		//구현
+		ptr = 0;
+		capacity = maxlen;
+		try {
+			stk = new int[capacity];
+		} catch(OutOfMemoryError e) {
+			capacity = 0;
+		}
 	}
 
 //--- 스택에 x를 푸시 ---//
 	public int push(int x) throws OverflowIntStackException {
 		//구현
+		if(ptr >= capacity) // 스택이 가득참
+			throw new OverflowIntStackException();
+		return stk[ptr++] = x;
 	}
 
 //--- 스택에서 데이터를 팝(정상에 있는 데이터를 꺼냄) ---//
 	public int pop() throws EmptyIntStackException {
 		//구현
+		if(ptr <=0) // 스택이 비어 있음
+			throw new EmptyIntStackException();
+		return stk[--ptr];
 	}
 
 //--- 스택에서 데이터를 피크(peek, 정상에 있는 데이터를 들여다봄) ---//
