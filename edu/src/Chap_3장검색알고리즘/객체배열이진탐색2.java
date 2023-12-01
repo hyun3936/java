@@ -149,7 +149,7 @@ public class 객체배열이진탐색2 {
 				new Fruit3("오렌지", 200, "2023-7-8"), new Fruit3("바나나", 50, "2023-5-18"),
 				new Fruit3("수박", 880, "2023-5-28"), new Fruit3("체리", 10, "2023-9-8") };
 
-		System.out.println("-".repeat(50) + "정렬전 객체 배열 " + "-".repeat(50));b   
+		System.out.println("-".repeat(50) + "정렬전 객체 배열 " + "-".repeat(50)); 
 		showData(arr);
 
 		CompName cc_name = new CompName(); // name으로 정렬
