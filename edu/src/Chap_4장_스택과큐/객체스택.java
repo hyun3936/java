@@ -9,7 +9,8 @@ import java.util.List;
 */
 import java.util.Random;
 import java.util.Scanner;
-class Point2 {
+
+class Point2 { // x,y 좌표
 	private int ix;
 	private int iy;
 
@@ -38,58 +39,75 @@ class Point2 {
 	public void setY(int y) {
 		iy = y;
 	}
+
 	@Override
 	public boolean equals(Object p) {
-		if ((this.ix == ((Point2)p).ix) && (this.iy == ((Point2)p).iy))
+		if ((this.ix == ((Point2) p).ix) && (this.iy == ((Point2) p).iy))
 			return true;
-		else return false;
+		else
+			return false;
 	}
 }
 
-class objectStack{
-	//--- 실행시 예외: 스택이 비어있음 ---//
+class objectStack {
+	// --- 실행시 예외: 스택이 비어있음 ---//
 	// generic class는 Throwable을 상속받을 수 없다 - 지원하지 않는다
 	public class EmptyGenericStackException extends Exception {
 		private static final long serialVersionUID = 1L;
+
 		public EmptyGenericStackException() {
 			super();
 		}
 	}
 
-	//--- 실행시 예외: 스택이 가득 참 ---//
+	// --- 실행시 예외: 스택이 가득 참 ---//
 	public class OverflowGenericStackException extends RuntimeException {
 		public OverflowGenericStackException() {
 		}
 	}
 
-  private List<Point2> data; // 스택용 배열
+	private List<Point2> data; // 스택용 배열
 	private int capacity; // 스택의 크기
 	private int top; // 스택 포인터 // ptr대신 top
 
 //--- 생성자(constructor) ---//
 	public objectStack(int capacity) {
-		//구현
-		top = 0;   
+		// 구현
+		// 배열 생성 // 메모리 부족으로 배열 생성 불가시
+		top = 0;
 		this.capacity = capacity;
-		data = new ArrayList<Point2>(); // 생성자는 ()필요
+		try {
+			data = new ArrayList<Point2>(capacity); // 생성자는 ()필요
+		} catch (OutOfMemoryError e) {
+			capacity = 0;
+		}
 	}
 
 //--- 스택에 x를 푸시 ---//
-	public boolean push(Point2 x) throws OverflowGenericStackException {
-		//구현
-		if(top >= capacity) 
+	// 스택이 다 차면 에러 발생, 아닌 이상 제일 위의 (포인터가 있는) 스택에 x push, 그 후 포인터 올리기
+	public void push(Point2 xy) throws OverflowGenericStackException {
+		// 구현
+		if (top >= capacity)
 			throw new OverflowGenericStackException();
-		
+		data.add(top++, xy);
 	}
 
 //--- 스택에서 데이터를 팝(정상에 있는 데이터를 꺼냄) ---//
-	public Point2 pop() throws EmptyGenericStackException  {
-		//구현
+	public Point2 pop() throws EmptyGenericStackException {
+		// 구현
+		// 스택이 없으면 에러 발생, 포인터를 내린 후에 값을 빼오기
+		if (top <= 0)
+			throw new EmptyGenericStackException();
+		return data.remove(--top);
 	}
 
 //--- 스택에서 데이터를 피크(peek, 정상에 있는 데이터를 들여다봄) ---//
-	public Point2 peek() throws EmptyGenericStackException  {
-		//구현
+	public Point2 peek() throws EmptyGenericStackException {
+		// 구현
+		// 당연히 데이터를 보기위해 포인터를 내려야한다
+		if (top <= 0)
+			throw new EmptyGenericStackException();
+		return data.get(top - 1);
 	}
 
 //--- 스택을 비움 ---//
@@ -98,8 +116,14 @@ class objectStack{
 	}
 
 //--- 스택에서 x를 찾아 인덱스(없으면 –1)를 반환 ---//
-	public int indexOf(Point2 x) {
-		//구현
+	public int indexOf(Point2 xy) {
+		// 구현
+		// 제일 마지막에서 부터 탐색
+		for (int i = top - 1; i >= 0; i--) {
+			if (data.get(i) == xy)
+				return i;
+		}
+		return -1;
 	}
 
 //--- 스택의 크기를 반환 ---//
@@ -124,10 +148,20 @@ class objectStack{
 
 //--- 스택 안의 모든 데이터를 바닥 → 꼭대기 순서로 출력 ---//
 	public void dump() {
-		//구현
+		// 구현
+		// 없을 경우엔 출력
+		if (top <= 0)
+			System.out.println("스택이 비어있습니다.");
+		else {
+			for (int i = 0; i < top; i++)
+				System.out.println(data.get(i).toString());
+
+			System.out.println();
+		}
 	}
 }
-public class 객체스택{
+
+public class 객체스택 {
 
 	public static void main(String[] args) {
 		Scanner stdIn = new Scanner(System.in);
@@ -149,10 +183,14 @@ public class 객체스택{
 				System.out.print("데이터: ");
 				rndx = random.nextInt(20);
 				rndy = random.nextInt(20);
-				p = new Point2(rndx,rndy);
+				System.out.println("데이터 x: ");
+				rndx = stdIn.nextInt();
+				System.out.println("데이터 y: ");
+				rndy = stdIn.nextInt();
+				p = new Point2(rndx, rndy);
 				try {
 					s.push(p);
-				} catch(objectStack.OverflowGenericStackException e) {
+				} catch (objectStack.OverflowGenericStackException e) {
 					System.out.println("stack이 가득찼있습니다.");
 				}
 				break;
@@ -161,7 +199,7 @@ public class 객체스택{
 				try {
 					p = s.pop();
 					System.out.println("pop한 데이터는 " + p + "입니다.");
-				} catch(objectStack.EmptyGenericStackException e) {
+				} catch (objectStack.EmptyGenericStackException e) {
 					System.out.println("stack이 비어있습니다.");
 				}
 				break;
@@ -177,6 +215,9 @@ public class 객체스택{
 
 			case 4: // 덤프
 				s.dump();
+				break;
+			case 5:
+				s.clear();
 				break;
 			}
 		}

@@ -67,23 +67,42 @@ class objectQueue2 {
 
 //--- 생성자(constructor) ---//
 public objectQueue2(int maxlen) {
-
+	que = new Point3[maxlen];
+	this.capacity = maxlen;
+	front = 0;
+	rear = 0;
+	num = 0;
 }
 
 //--- 큐에 데이터를 인큐 ---//
-	public int enque(Point3 x) throws OverflowQueueException {
-
-
+	public void enque(Point3 x) throws OverflowQueueException {
+		if(num >= capacity) {
+			throw new OverflowQueueException();
+		}
+		que[rear++] = x;
+		num ++;
 	}
 
 //--- 큐에서 데이터를 디큐 ---//
 	public Point3 deque() throws EmptyQueueException {
-
+		if(num <= 0) {
+			throw new EmptyQueueException();
+		}
+		Point3 temp = que[front];
+		num--;
+		for(int i = 0; i< num; i++) {
+			que[i] = que [i+1];
+		}
+		rear--;
+		return temp;
 	}
 
 //--- 큐에서 데이터를 피크(프런트 데이터를 들여다봄) ---//
 	public Point3 peek() throws EmptyQueueException {
-
+		if(num <= 0) {
+			throw new EmptyQueueException();
+		}
+		return que[front];
 	}
 
 //--- 큐를 비움 ---//
@@ -93,7 +112,12 @@ public objectQueue2(int maxlen) {
 
 //--- 큐에서 x를 검색하여 인덱스(찾지 못하면 –1)를 반환 ---//
 	public int indexOf(Point3 x) {
-
+		for(int i = 0; i<num; i++) {
+			if(que[i].equals(x)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 //--- 큐의 크기를 반환 ---//
@@ -118,13 +142,17 @@ public objectQueue2(int maxlen) {
 
 //--- 큐 안의 모든 데이터를 프런트 → 리어 순으로 출력 ---//
 	public void dump() {
-
+		System.out.println("[ ");
+		for(int i = 0; i<num; i++) {
+			System.out.print(que[i].toString()+" ");
+		}
+		System.out.print("]");
 	}
 }
 public class 객체선형큐배열 {
 	public static void main(String[] args) {
 		Scanner stdIn = new Scanner(System.in);
-		objectQueue2 oq = new objectQueue2(4); // 최대 64개를 인큐할 수 있는 큐
+		objectQueue2 oq = new objectQueue2(64); // 최대 64개를 인큐할 수 있는 큐
 		Random random = new Random();
 		int rndx = 0, rndy = 0;
 		Point3 p = null;
