@@ -21,4 +21,8 @@
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.beans.Statement"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="Chap_4장_스택과큐.정수선형큐_리스트"/>
+    <fullyQualifiedTypeName name="Chap_4장_스택과큐.Queue4.OverflowQueueException"/>
+    <fullyQualifiedTypeName name="Chap_4장_스택과큐.IntQueue3.OverflowIntQueue3Exception"/>
+    <fullyQualifiedTypeName name="Chap_4장_스택과큐.objectQueue2.EmptyQueueException"/>
 </qualifiedTypeNameHistroy>

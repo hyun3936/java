@@ -19,7 +19,7 @@ class Point3 {
 
 	@Override
 	public String toString() {
-		return "<" + ix + ", " + iy + ">";
+		return "<" + ix + ", " + iy + ">" + "\n";
 	}
 
 	public int getX() {
@@ -142,7 +142,7 @@ public objectQueue2(int maxlen) {
 
 //--- 큐 안의 모든 데이터를 프런트 → 리어 순으로 출력 ---//
 	public void dump() {
-		System.out.println("[ ");
+		System.out.print("[ ");
 		for(int i = 0; i<num; i++) {
 			System.out.print(que[i].toString()+" ");
 		}

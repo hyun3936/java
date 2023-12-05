@@ -3,7 +3,7 @@ package Chap_5장_재귀알고리즘;
 import java.util.ArrayList;
 import java.util.List;
 
-enum Directions2 {N, NE, E, SE, S, SW, W, NW}
+enum Directions2 {N, NE, E, SE, S, SW, W, NW};
 class Items3 {
 	int x;
 	int y;
@@ -119,39 +119,49 @@ class Offsets3 {
 }
 
 	public class MazingProblem{
-
-		static Offsets[] moves = new Offsets[8];//static을 선언하는 이유를 알아야 한다
+		
+		static Offsets3[] moves = new Offsets3[8];//static을 선언하는 이유를 알아야 한다
 
 		public static void path(int[][] maze, int[][] mark, int ix, int iy) {
 
-			mark[1][1] = 1;
+			mark[1][1] = 1; // 내가 지나간자리 1로 표시 (시작점)
 			StackList st = new StackList(50);
-			Items temp = new Items(0, 0, 0);//N :: 0
+			Items3 temp = new Items3(0, 0, 0);//N :: 0
 			temp.x = 1;
 			temp.y = 1;
-			temp.dir = 2;//E:: 2
+			temp.dir = 2; //E:: 2
 			mark[temp.x][temp.y] = 2;//미로 찾기 궤적은 2로 표시
 			st.push(temp);
 
 			while (!st.isEmpty()) // stack not empty
 			{
-				Items tmp = st.pop(); // unstack
+				Items3 tmp = st.pop(); // unstack
 				int i = tmp.x;
 				int j = tmp.y;
 				int d = tmp.dir;
 				mark[i][j] = 1;//backtracking 궤적은 1로 표시
 				while (d < 8) // moves forward
 				{
-
+						int g = i + moves[d].a;
+						int h = j + moves[d].b;
 					if ((g == ix) && (h == iy)) { // reached exit
-													// output path
-
+						mark[i-1][j] = 2;
+						mark[g][h] = 2;
+						while(!st.isEmpty()) {     // output path
+						Items3 ans = st.pop(); // unstack
+						mark[ans.x][ans.y] = 2;
+						}
 					}
 					if ((maze[g][h] == 0) && (mark[g][h] == 0)) { // new position
-
-
+						mark[g][h] = 1;
+						Items3 nextD = new Items3(i,j,d+1);
+						st.push(nextD);
+						i=g;
+						j=h;
+						d=0;
 					} else
-
+						d++;
+ 
 				}
 			}
 			System.out.println("no path in maze ");
@@ -181,9 +191,10 @@ class Offsets3 {
 					{ 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1 },
 					{ 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0 },
 					{ 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0 },
-					{ 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0 }};
+					{ 0, 1, 0, 0, 1, 1, 1, 1,  1, 0, 1, 1, 1, 1, 0 }};
+			
 			for (int ia = 0; ia < 8; ia++)
-				moves[ia] = new Offsets(0, 0);//배열에 offsets 객체를 치환해야 한다.
+				moves[ia] = new Offsets3(0, 0);//배열에 offsets 객체를 치환해야 한다.
 			moves[0].a = -1;	moves[0].b = 0;
 			moves[1].a = -1;	moves[1].b = 1;
 			moves[2].a = 0;		moves[2].b = 1;
@@ -197,8 +208,15 @@ class Offsets3 {
 			//d = d + 1;//java는 지원안됨
 			for (int i = 0; i < 14; i++) {
 				for (int j = 0; j < 17; j++) {
-
 					// input[][]을 maze[][]로 변환
+					if (i == 0 || i == 13 || j == 0 || j == 16)
+					{
+						maze[i][j] = 1;
+					}else
+						maze[i][j] = input[i-1][j-1];
+					
+					
+					
 				}
 			}
 			System.out.println("maze[12,15]::");
