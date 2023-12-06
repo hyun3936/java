@@ -9,7 +9,9 @@ class Items3 {
 	int y;
 	int dir;
 	public Items3(int x, int y, int d) {
-		this.x = x; this.y = y; this.dir = d;
+		this.x = x;
+		this.y = y;
+		this.dir = d;
 	}
 	@Override
 	public String toString() {
@@ -20,7 +22,8 @@ class Offsets3 {
 	int a;
 	int b;
 	public Offsets3(int a, int b) {
-		this.a = a; this.b = b;
+		this.a = a;
+		this.b = b;
 	}
 }
 	class StackList {
@@ -55,7 +58,8 @@ class Offsets3 {
 	public void push(Items3 p) throws OverflowIntStackException {
 		if (top >= capacity) // 스택이 가득 참
 			throw new OverflowIntStackException();
-		data.add(p);top++;
+		data.add(p);
+		top++;
 		return;
 	}
 
@@ -78,7 +82,7 @@ class Offsets3 {
 		top = 0;
 	}
 
-	// --- 스택에서 x를 찾아 인덱스(벌견하지 못하면 –1)를 반환 ---//
+	// --- 스택에서 x를 찾아 인덱스(발견하지 못하면 –1)를 반환 ---//
 	public int indexOf(Items3 x) {
 		for (int i = top - 1; i >= 0; i--) // 정상 쪽에서 선형검색
 			if (data.get(i).equals(x))
@@ -120,52 +124,59 @@ class Offsets3 {
 
 	public class MazingProblem{
 		
-		static Offsets3[] moves = new Offsets3[8];//static을 선언하는 이유를 알아야 한다
-
+		static Offsets3[] moves = new Offsets3[8];//static을 선언하는 이유를 알아야 한다 => 객체 생성없이 직접사용한다(전역변수)
+		
+//		MazingProblem mp = new MazingProblem();  // static이 없으면 객체를 생성해줘야 한다.
+//		mp.moves[O].a =  
+//		
 		public static void path(int[][] maze, int[][] mark, int ix, int iy) {
 
 			mark[1][1] = 1; // 내가 지나간자리 1로 표시 (시작점)
-			StackList st = new StackList(50);
+			StackList st = new StackList(50); // 충분한 이동경로 설
 			Items3 temp = new Items3(0, 0, 0);//N :: 0
 			temp.x = 1;
-			temp.y = 1;
+			temp.y = 1; // 시작좌표 0,0 이었는데 울타리 친 후 1,1
 			temp.dir = 2; //E:: 2
 			mark[temp.x][temp.y] = 2;//미로 찾기 궤적은 2로 표시
 			st.push(temp);
 
+			
+			
 			while (!st.isEmpty()) // stack not empty
 			{
 				Items3 tmp = st.pop(); // unstack
 				int i = tmp.x;
 				int j = tmp.y;
 				int d = tmp.dir;
-				mark[i][j] = 1;//backtracking 궤적은 1로 표시
+				mark[i][j] = 0;//backtracking 궤적은 1로 표시 => 수정
 				while (d < 8) // moves forward
 				{
 						int g = i + moves[d].a;
 						int h = j + moves[d].b;
-					if ((g == ix) && (h == iy)) { // reached exit
-						mark[i-1][j] = 2;
+					if ((g == ix) && (h == iy)) { // reached exit: ix = 12, iy = 15 출구점
+						mark[i][j] = 2;
 						mark[g][h] = 2;
-						while(!st.isEmpty()) {     // output path
-						Items3 ans = st.pop(); // unstack
-						mark[ans.x][ans.y] = 2;
-						}
+//						while(!st.isEmpty()) {     // output path
+//							System.out.println(st.pop());
+//						}
+						return; // 반복문 탈출
 					}
+					// i,j는 현재 위치, d는 방향, g,h는 다음에 갈 위치 
 					if ((maze[g][h] == 0) && (mark[g][h] == 0)) { // new position
-						mark[g][h] = 1;
-						Items3 nextD = new Items3(i,j,d+1);
+						// 다음에 이동할 방향
+						//mark[g][h] = 1; // 방문한 위치를 표시 //삭제 수정
+						mark[i][j] = 2;
+						// System.out.println("i = " + i + "j = " + j);
+						Items3 nextD = new Items3(i, j, d+1);//수정2 // 여기서 d+1이 아닌 d만 적으니 j=14 ~ 15 부분을 무한루프 돌았음.
+						i = g; j = h; d = 0;//추가됨
 						st.push(nextD);
-						i=g;
-						j=h;
-						d=0;
-					} else
+					}
 						d++;
- 
 				}
 			}
-			System.out.println("no path in maze ");
+			System.out.println("no path in maze");
 		}
+		
 		static void showMatrix(int[][]d, int row, int col) {
 			for (int i = 0; i <= row; i++) {
 				for (int j = 0; j <= col; j++) {
@@ -209,14 +220,11 @@ class Offsets3 {
 			for (int i = 0; i < 14; i++) {
 				for (int j = 0; j < 17; j++) {
 					// input[][]을 maze[][]로 변환
-					if (i == 0 || i == 13 || j == 0 || j == 16)
+					if (i == 0 || i == 13 || j == 0 || j == 16) // 원래있던 input배열의 경계를 1로 둘러싸서 maze배열로 만듦.
 					{
 						maze[i][j] = 1;
 					}else
-						maze[i][j] = input[i-1][j-1];
-					
-					
-					
+						maze[i][j] = input[i-1][j-1];	// 원래 있던 input배열에서 행과 열이 2줄씩 늘어났으니, maze배열에 맞게 좌표 수정
 				}
 			}
 			System.out.println("maze[12,15]::");
@@ -225,9 +233,9 @@ class Offsets3 {
 			System.out.println("mark::");
 			showMatrix(mark, 13, 16);
 
-			path(maze, mark, 12, 15);
+			path(maze, mark, 12, 15); // static 이니까 .ㅇㅇㅇ없이 바로 사용 가능
 			System.out.println("mark::");
-			showMatrix(mark, 12, 15);
+			showMatrix(mark, 13, 16);
 		}
 	}
 

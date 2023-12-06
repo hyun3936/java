@@ -16,13 +16,17 @@
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.Comparator"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.beans.Statement"/>
-    <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="Chap_4장_스택과큐.정수선형큐_리스트"/>
     <fullyQualifiedTypeName name="Chap_4장_스택과큐.Queue4.OverflowQueueException"/>
     <fullyQualifiedTypeName name="Chap_4장_스택과큐.IntQueue3.OverflowIntQueue3Exception"/>
     <fullyQualifiedTypeName name="Chap_4장_스택과큐.objectQueue2.EmptyQueueException"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="TESTsh.objectQueue2.OverflowQueueException"/>
+    <fullyQualifiedTypeName name="TESTsh.objectQueue2.EmptyQueueException"/>
 </qualifiedTypeNameHistroy>
