@@ -23,34 +23,92 @@ public class testnumb {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, username, password);
 
-			PreparedStatement pt = con.prepareStatement("insert into numb (name,address,mp,jp,hp,email,cate ) values (?,?,?,?,?,?,?)");
+			// 입력
+//			PreparedStatement pt = con.prepareStatement("insert into numb (name,address,mp,jp,hp,email,cate ) values (?,?,?,?,?,?,?)");
 													
-//			pt.setString(1, "송지효","전소민");
-//			pt.setString(2, "대구", "울산");
-//			pt.setString(3, "001", "002");
-//			pt.setString(4, "000","000");
-//			pt.setString(5, "003","004");
-//			pt.setString(6, "런닝@google.com", "런닝@daum.com");
-//			pt.setString(7, "티비","티비");
+
+//			pt.setString(1, "송지효");
+//			pt.setString(2, "대구");
+//			pt.setString(3, "001");
+//			pt.setString(4, "000");
+//			pt.setString(5, "003");
+//			pt.setString(6, "런닝@google.com");
+//			pt.setString(7, "티비");
 			
-			pt.setString(1, "송지효");
-			pt.setString(2, "대구");
-			pt.setString(3, "001");
-			pt.setString(4, "000");
-			pt.setString(5, "003");
-			pt.setString(6, "런닝@google.com");
-			pt.setString(7, "티비");
+//			pt.executeUpdate();
 			
-			pt.setString(1, "전소민");
-			pt.setString(2, "울산");
-			pt.setString(3, "002");
-			pt.setString(4, "000");
-			pt.setString(5, "003");
-			pt.setString(6, "런닝@daum.com");
-			pt.setString(7, "티비");
+		
+			
+//			PreparedStatement pt = con.prepareStatement("select id, name, address, mp, jp, hp, email, cate "
+//														+"from numb "
+//					  									+"where name = ? ");
+			
+			
+//		    검색 할때
+//			pt.setString(1, "송지효");
+//			
+//			ResultSet rs = pt.executeQuery();
+//			
+//			while(rs.next()) {
+//				System.out.print(rs.getInt("id")+","); // id는 int니까 getInt
+//				System.out.print(rs.getString("name")+",");
+//				System.out.print(rs.getString("address")+",");
+//				System.out.print(rs.getString("mp")+",");
+//				System.out.print(rs.getString("jp")+",");
+//				System.out.print(rs.getString("hp")+",");
+//				System.out.print(rs.getString("email")+",");
+//				System.out.print(rs.getString("cate")+"\n");
+//			}
+			
+			
+			
+			
+			//rs.close();
+			
+//			PreparedStatement pt = con.prepareStatement("delete id, name, address, mp, jp, hp, email, cate "
+//														+"from numb "
+//														+"where id = ?");
+//		
+//			
+//			pt.setInt(1, 6);
+//			pt.executeUpdate();
+//			
+			
+			// 수정
+			PreparedStatement pt = con.prepareStatement("update into numb (name,address,mp,jp,hp,email,cate ) values (?,?,?,?,?,?,?)");
+
+
+			pt.setInt(1, 6);
+			ResultSet rs = pt.executeQuery();
+			
+			while(rs.next()) {
+			System.out.print(rs.getInt("id")+","); // id는 int니까 getInt
+			System.out.print(rs.getString("name")+",");
+			System.out.print(rs.getString("address")+",");
+			System.out.print(rs.getString("mp")+",");
+			System.out.print(rs.getString("jp")+",");
+			System.out.print(rs.getString("hp")+",");
+			System.out.print(rs.getString("email")+",");
+			System.out.print(rs.getString("cate")+"\n");
+		}
+		
+			pt.setString(1, "유재석");
+			pt.setString(2, "서초");
+			pt.setString(3, "999");
+			pt.setString(4, "888");
+			pt.setString(5, "777");
+			pt.setString(6, "런닝@run.com");
+			pt.setString(7, "mbc");
+			
+			
+			
+			
+			
 			
 			pt.executeUpdate();
-			pt.executeUpdate();
+			
+
+			
 			pt.close();
 			con.close();
 

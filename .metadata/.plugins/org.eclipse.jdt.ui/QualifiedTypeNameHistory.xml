@@ -5,7 +5,6 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.imageio.metadata.IIOMetadataFormatImpl"/>
     <fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.ForegroundAction"/>
-    <fullyQualifiedTypeName name="java.awt.Point"/>
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
@@ -29,4 +28,5 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="TESTsh.objectQueue2.OverflowQueueException"/>
     <fullyQualifiedTypeName name="TESTsh.objectQueue2.EmptyQueueException"/>
+    <fullyQualifiedTypeName name="java.awt.Point"/>
 </qualifiedTypeNameHistroy>

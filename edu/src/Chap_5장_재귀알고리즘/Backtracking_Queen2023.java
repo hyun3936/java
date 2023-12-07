@@ -1,9 +1,11 @@
 package Chap_5장_재귀알고리즘;
 
+
+
 //https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/?ref=lbp
 //N Queen problem / backtracking
 
-//모든 해가 나오는 버젼 만들기 
+// 퀸 문제 해결 후, 모든 해가 나오는 버젼 만들기 
 /*
 * 체스판은 8 x 8
 * 체스의 기물: king/가로세로대각선 1칸만 이동, queen/가로세로 대각선/같은 편의 기물을 넘을 수 없다,
@@ -12,6 +14,20 @@ package Chap_5장_재귀알고리즘;
 *  체스판 최대 배치 문제 : king/16, Queen/8, rook/8, bishop/?, knight/?
 *  rook 2개/a, h, knight 2개/b, g, bishop 2개/c, f, queen 1개/black queen은 black 칸에, 폰 8개
 */
+
+class Point{
+	
+}
+
+class stack3{
+	
+}
+
+
+
+
+
+
 public class Backtracking_Queen2023 {
 	public static void solveQueen(int[][] d) {
 		int count = 0;//퀸 배치 갯수
@@ -23,14 +39,23 @@ public class Backtracking_Queen2023 {
 		st.push(p);// 스택에 현 위치 객체를 push
 		ix++;//ix는 행별로 퀸 배치되는 것을 말한다.
 		while (true) {
-			if (st.isEmpty() && ix == 8) //ix가 8이면 8개 배치 완료, stack이 empty가 아니면 다른 해를 구한다 
+			if (st.isEmpty() && ix == 8) // stack이 empty가 아니면 다른 해를 구한다, ix가 8이면 8개 배치 완료
 				break;
 			if ((iy = nextMove(d, ix, iy))== -1) {//다음 이동할 열을 iy로 주는데 -1이면 더이상 이동할 열이 없음을 나타냄
-
+				//pop    cnt -- reset
+				st.pop();
+				
+				d[ix][iy] == 0; // 이전 행 퀸 제거
+				count--; // 카운트 되돌리기
+				
+				
+				
+				
 			}
 
 			if (count == 8) { //8개를 모두 배치하면
-
+				// 출력
+				
 			}
 
 		}
@@ -38,7 +63,7 @@ public class Backtracking_Queen2023 {
 	}
 
 	public static boolean checkRow(int[][] d, int crow) { //배열 d에서 행 crow에 퀸을 배치할 수 있는지 조사
-
+		if()
 	}
 
 	public static boolean checkCol(int[][] d, int ccol) {//배열 d에서 열 ccol에 퀸을 배치할 수 있는지 조사

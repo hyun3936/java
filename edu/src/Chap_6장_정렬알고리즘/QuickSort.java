@@ -1,4 +1,4 @@
-package Chap_6장_정렬알고리즘;
+ package Chap_6장_정렬알고리즘;
 
 import Chap_6장_정렬알고리즘.StackSorting.Stack3;
 //stack 1개를 사용한 non-recursve QuickSort() 구현
@@ -27,7 +27,7 @@ class Point {
 	public void setY(int y) {
 		iy = y;
 	}
-}
+ }
 public class Chap6_Test_QuickSort {
 
 
