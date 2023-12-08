@@ -1,12 +1,7 @@
-package Chap_5장_재귀알고리즘;
+package Chap_5장_재귀알고리즘;  // 문제풀때 Stack의 상황을 계속 생각하기. 어떤게 들어가고 어떤게 나와서 현재 stack는 뭐가 들어있는지.
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-
-
-
 
 //https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/?ref=lbp
 //N Queen problem / backtracking
@@ -17,7 +12,7 @@ import java.util.List;
 * 체스의 기물: king/가로세로대각선 1칸만 이동, queen/가로세로 대각선/같은 편의 기물을 넘을 수 없다,
 *  Rook/가로,세로 이동/다른 기물을 넘을 수없다, bishop/대각선, knight/1-2칸 이동/다른 기물을 넘을 수 있다,
 *  pawn/처음 이동은 2칸까지 가능, 그 후 한칸만 가능, 잡을 때는 대각선 가능
-*  체스판 최대 배치 문제 : king/16, Queen/8, rook/8, bishop/?->6, knight/?
+*  체스판 최대 배치 문제 : king/16, Queen/8, rook/8, bishop/14, knight/32
 *  rook 2개/a, h, knight 2개/b, g, bishop 2개/c, f, queen 1개/black queen은 black 칸에, 폰 8개
 */
 
@@ -28,13 +23,11 @@ class Point3 {
 	public Point3(int x, int y) {
 		ix = x;
 		iy = y;
-
 	}
 
 	@Override
 	public String toString() {
 		return "<" + ix + ", " + iy + ">";
-
 	}
 
 	public int getX() {
@@ -60,7 +53,6 @@ class Point3 {
 		else
 			return false;
 	}
-
 }
 
 class Stack3 {
@@ -162,7 +154,7 @@ class Stack3 {
 public class Backtracking_Queen2023 {
 	public static void solveQueen(int[][] d) {
 		int total = 0;// 총 해답 수
-		int count = 0;// 퀸 배치 갯수
+		int count = 0;// 퀸 배치 갯수(0~8)
 		int ix = 0, iy = 0;// 행 ix, 열 iy
 		Stack3 st = new Stack3(100); // 100개를 저장할 수 있는 스택을 만들고
 		Point3 p = new Point3(ix, iy);// 현 위치를 객체로 만들고
@@ -172,16 +164,20 @@ public class Backtracking_Queen2023 {
 		ix++;// ix는 행별로 퀸 배치되는 것을 말한다.
 
 		while (true) {
-//			if (st.isEmpty() && iy == 8) // stack이 empty가 아니면 다른 해를 구한다, ix가 8이면 8개 배치 완료
-//				break; // 일단 주석
-
+			// stack이 텅 비면 while문 탈출하는 if문
+			// backtracking을 하다보면 결국 첫번째 퀸이 (0,8)위치에 마지막으로 남는데
+			// 여기서 또 팝을하면 더이상 위에 팝할 퀸이 없기 때문에 반복문을 탈출해줘야 한다.
+			
+			if (st.isEmpty() && iy == 8) // stack이 empty가 아니면 다른 해를 구한다, ix가 8이면 8개 배치 완료
+				break; // 완결 구문. while문에서 제일 중요한게 탈출구문. 안그러면 무한루프.
+			 // pop하면서 마지막에 첫번째 행까지 왔을때 또 팝을 못하니까 비어있을때 탈출
+			
+			
+			
+			// 더이상 이동할 곳이 없으면, pop하고 퀸위치를 되돌리기?
 			if ((iy = nextMove(d, ix, iy)) == -1) {// 다음 이동할 열을 iy로 주는데 -1이면 더이상 이동할 열이 없음을 나타냄
-				// pop cnt -- reset
-				if(st.isEmpty()) // 완결 구문. while문에서 제일 중요한게 탈출구문. 안그러면 무한루프.
-					return; // pop하면서 마지막에 첫번째 행까지 왔을때 또 팝을 못하니까 비어있을때 탈출
 				
-				
-				Point3 preQ = st.pop();
+				Point3 preQ = st.pop(); // stack을 pop하는데 그걸 preQ변수에 저장해서 값가져옴.
 
 				// 이전 row의 퀸 위치로 좌표 이동
 				ix = preQ.getX();
@@ -205,7 +201,6 @@ public class Backtracking_Queen2023 {
 				// 다음 row로 이동
 				ix++;
 				iy = 0;
-
 			}
 
 			if (count == 8) { // 8개를 모두 배치하면
@@ -226,8 +221,6 @@ public class Backtracking_Queen2023 {
 				count--;
 
 				iy++;// 현재 위치에서 다음 column으로 이동
-
-
 			}
 		}
 	}
@@ -285,7 +278,6 @@ public class Backtracking_Queen2023 {
 			x--; y--;
 		}
 		return true;
-
 	}
 
 	// 배열 d에서 (x,y)에 퀸을 배치할 수 있는지 조사
@@ -317,10 +309,7 @@ public class Backtracking_Queen2023 {
 				else
 					System.out.print("□ ");
 			}
-			System.out.println();
-			
-				
-				
+			System.out.println();				
 		}
 	}
 
@@ -332,6 +321,5 @@ public class Backtracking_Queen2023 {
 				data[i][j] = 0;
 
 		solveQueen(data);
-
 	}
 }
