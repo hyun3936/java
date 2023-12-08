@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 //int형 고정 길이 스택
 
-class IntStack {
+ class IntStack {
 	private int[] stk; // 스택용 배열 (stack 약어)
 	private int capacity; // 스택의 용량(크기)
 	private int ptr; // 스택 포인터 (pointer 약어)(스택에 쌓여 있는 데이터 수를 나타내는 필드)
