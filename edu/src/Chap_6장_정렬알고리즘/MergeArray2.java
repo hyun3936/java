@@ -7,8 +7,17 @@ public class MergeArray2 {
 //정렬을 완료한 배열의 병합
 
 	class 실습6_11MergeArray {
+		static int[] buff; // 작업용 배열
+		
 //--- 배열 a에 정렬한 결과를 return ---//
 		static void merge(int[] a, int left1, int right1, int left2, int right2) {
+			while (i <= right && j < p)
+				a[k++] = (buff[j] <= a[i]) ? buff[j++]: a[i]++;
+			
+			while (j < p)
+				a[k++] = buff[j++];
+			
+			
 //{2,4,6,8,11,13}과 {1,3,5,7,9,16,21}을 합병하여 정렬 결과를 만드는 코드를 작성
 		}
 

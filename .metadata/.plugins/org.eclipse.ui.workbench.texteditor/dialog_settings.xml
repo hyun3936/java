@@ -5,24 +5,37 @@
 		<item key="DIALOG_Y_ORIGIN" value="576"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="q"/>
+		<item key="selection" value="Queen"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="queen"/>
 			<item value="q"/>
+			<item value="Stack3"/>
+			<item value="Stack"/>
+			<item value="Point3"/>
+			<item value="dump"/>
+			<item value="crow"/>
+			<item value="c"/>
+			<item value="Point333"/>
+			<item value="Point"/>
+			<item value="st"/>
+			<item value="bool"/>
+			<item value="stack"/>
 			<item value="enum"/>
 			<item value="&#x0D;&#x0A;&#x0D;&#x0A;import Chap_4장_스택과큐.Point3;&#x0D;&#x0A;import Chap_4장_스택과큐.objectQueue2.OverflowQueueException;"/>
-			<item value="toString"/>
-			<item value="director"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Stackb"/>
+			<item value="Pointb"/>
+			<item value="Point3"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="746"/>
+		<item key="DIALOG_X_ORIGIN" value="645"/>
 		<item key="DIALOG_Y_ORIGIN" value="448"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>

@@ -29,4 +29,7 @@
     <fullyQualifiedTypeName name="TESTsh.objectQueue2.OverflowQueueException"/>
     <fullyQualifiedTypeName name="TESTsh.objectQueue2.EmptyQueueException"/>
     <fullyQualifiedTypeName name="java.awt.Point"/>
+    <fullyQualifiedTypeName name="Chap_4장_스택과큐.IntStack.OverflowIntStackException"/>
+    <fullyQualifiedTypeName name="Chap_4장_스택과큐.IntStack.EmptyIntStackException"/>
+    <fullyQualifiedTypeName name="TESTsh.IntStack.OverflowIntStackException"/>
 </qualifiedTypeNameHistroy>
