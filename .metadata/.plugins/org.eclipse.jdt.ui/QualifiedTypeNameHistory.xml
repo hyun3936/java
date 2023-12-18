@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.Comparator"/>
     <fullyQualifiedTypeName name="java.beans.Statement"/>
@@ -32,4 +31,6 @@
     <fullyQualifiedTypeName name="Chap_4장_스택과큐.IntStack.OverflowIntStackException"/>
     <fullyQualifiedTypeName name="Chap_4장_스택과큐.IntStack.EmptyIntStackException"/>
     <fullyQualifiedTypeName name="TESTsh.IntStack.OverflowIntStackException"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
 </qualifiedTypeNameHistroy>

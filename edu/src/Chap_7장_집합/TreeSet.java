@@ -1,32 +1,34 @@
-package Chap_7장_문자열검색;
+package Chap_7장_집합;
 
 class Sets {
 	public Sets(int sz)
 	{
 		n = sz;
 		parent = new int[sz + 1]; // Don't want to use parent[0]
-		for (int i = 0; i < n; i++) parent[i] = -1;  // 0 for Simple versions
+		for (int i = 1; i < n+1; i++) parent[i] = -1;  // 0 for Simple versions
 	}
 
 	public void display(){
 
 		for (int i = 1; i <= n; i++)
-			System.out.print(" " +  i);
+			System.out.print("\t" +  i);
 		System.out.println();
 		for (int i = 1; i <= n; i++)
-			System.out.print(" " + parent[i]);
+			System.out.print("\t" + parent[i]);
 		System.out.println();
 	}
 
 	public void SimpleUnion(int i, int j)
 	// Replace the disjoint sets with roots i and j, i != j with their union
 	{
-
-		while (parent[i] > 0) i = parent[i];
+		while (parent[i] > 0) i = parent[i]; // while문은 루트를 찾는 작업
 		while (parent[j] > 0) j = parent[j];
+		int num = parent[i] + parent[j];
 		System.out.println("i = " + i + " j = " + j);
-		if (i != j)
+		if (i != j) {
 			parent[j] = i;
+			parent[i] = num;
+		}		
 	}
 
 	public int SimpleFind(int i)
@@ -41,6 +43,10 @@ class Sets {
 	// Union sets with roots i and j, i != j, using the weighting rule.
 	// parent[i]~=~-count[i] and parent[i]~=~-count[i].
 	{
+		while (parent[i] > 0) i = parent[i];
+		while (parent[j] > 0) j = parent[j];
+		if (i == j) return; // 같으면 실행x
+		
 		int temp = parent[i] + parent[j];
 		if (parent[i] > parent[j]) { // i has fewer nodes
 			parent[i] = j;
@@ -72,7 +78,7 @@ class Sets {
 
 public class TreeSet {
 	public static void main(String[] args) {
-
+		// SimpleUnion 돌릴려면 WeightedUnion을 주석. 둘은 같이 안됨.
 	Sets s1 = new Sets(20);
 	s1.SimpleUnion(7,1);s1.SimpleUnion(2,3);s1.SimpleUnion(4,5);s1.SimpleUnion(6,7);
 	s1.SimpleUnion(4,2);s1.SimpleUnion(5,7);s1.SimpleUnion(9,11);s1.SimpleUnion(13,9);
@@ -101,7 +107,7 @@ public class TreeSet {
 	System.out.println ("find 1: " + s1.CollapsingFind(1) + "\n");
 	System.out.println ("find 2: " + s1.CollapsingFind(2) + "\n");
 	System.out.println ("find 3: " + s1.CollapsingFind(3) + "\n");
-	System.out.println( "find 4: " + s1.CollapsingFind(4) + "\n");
+	System.out.println ("find 4: " + s1.CollapsingFind(4) + "\n");
 	System.out.println ("find 5: " + s1.CollapsingFind(5) + "\n");
 	System.out.println ("find 6: " + s1.CollapsingFind(6) + "\n");
 	System.out.println ("find 7: " + s1.CollapsingFind(7) + "\n");
