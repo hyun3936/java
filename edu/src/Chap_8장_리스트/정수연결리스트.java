@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 class Node1 {
 	int data;
-	Node1 link;
+	Node1 link; // link는 Node1 클래스의 객체를 참조할 수 있는 변수로서 사용
 
 	public Node1(int element) {
 		data = element;
@@ -22,49 +22,60 @@ class LinkedList1 {
 		first = null;
 	}
 
-	public int Delete(int element) // delete the element
+	public void Delete(int element) // delete the element
 	{
-		return 0;
+		Node1 p = first, q = null; // 두 개의 노드 포인터 p와 q를 초기화하고, 리스트의 첫 번째 노드를 가리키도록 함
+
+		while (p != null && p.data != element) { // 리스트를 탐색하면서 삭제할 값이 있는 노드를 찾을 때까지 반복
+			q = p; // 이전 노드를 현재 노드로 이동
+			p = p.link; // 현재 노드를 다음 노드로 이동
+		}
+
+		if (p != null) { // 삭제할 값이 리스트 안에 존재하는 경우
+			if (q != null) {
+				q.link = p.link; // 이전 노드의 링크를 삭제할 노드의 다음 노드로 연결
+			} else {
+				first = p.link; // 삭제할 노드가 첫 번째 노드인 경우, 첫 번째 노드를 삭제할 노드의 다음 노드로 변경
+			}
+		}
 	}
 
 	public void Show() { // 전체 리스트를 순서대로 출력한다.
-
+		
 	}
 
 	public void Add(int element) // 임의 값을 삽입할 때 리스트가 오름차순으로 정렬이 되도록 한다
 	{
-		Node1 tmp = new Node1(element);
-		Node1 p = first, q = null;
-		if(first == null) {			
-		first = tmp;
-		}
-		while (p != null) {
-			if(element < p.data) {
-				tmp.link = p;
-				if (q != null)
-				q.link = tmp;
-				else 
-					first = tmp;
-			}
-			else {
-				q = p;
-				p = p.link;
-				if (p == null) {
-					q.link = tmp;
-				}
-			}
-			p = p.link;
-		}
+		Node1 tmp = new Node1(element); // 삽입할 값을 갖는 새로운 노드 'tmp'를 생성
+		Node1 p = first, q = null; // 두 개의 노드 포인터 p와 q를 초기화하고, 리스트의 첫 번째 노드를 가리키도록 함
+
+	    if(p == null) {  // 리스트가 비어있는 경우        
+	        first = tmp; // 첫 번째 노드로 새로운 노드를 지정
+	    } 
+	    
+	    else {
+	        while (p != null && element > p.data) { // 수정: 리스트를 탐색하면서 현재 노드의 값이 삽입할 값보다 작을 때까지 반복
+	            q = p;   // 이전 노드를 현재 노드로 이동
+	            p = p.link; // 현재 노드를 다음 노드로 이동
+	        }
+
+	        if (q != null) {
+	            tmp.link = p; // 새로운 노드를 현재 노드 앞에 연결
+	            q.link = tmp; // 이전 노드의 링크를 새로운 노드로 설정
+	        } else {
+	            tmp.link = first; // 리스트의 맨 앞에 새로운 노드를 추가하는 경우
+	            first = tmp; // 첫 번째 노드로 새로운 노드를 지정
+	        }
+	    }
 	}
-
-
+	
 	public boolean Search(int data) { // 전체 리스트를 순서대로 출력한다.
 		return true;
 	}
 }
 
 public class 정수연결리스트 {
-	  enum Menu {
+	enum Menu {
 		Add("삽입"), Delete("삭제"), Show("인쇄"), Search("검색"), Exit("종료");
 
 		private final String message; // 표시할 문자열
@@ -101,21 +112,24 @@ public class 정수연결리스트 {
 		return Menu.MenuAt(key);
 	}
 
+	
+	
+	
 	public static void main(String[] args) {
 		Menu menu; // 메뉴
 		Random rand = new Random();
 		System.out.println("Linked List");
 		LinkedList1 l = new LinkedList1();
 		Scanner sc = new Scanner(System.in);
-		int data = 0; 
+		int data = 0;
 //		System.out.println("inserted"); // 테스트 용
 //		l.Show();
 		do {
 			switch (menu = SelectMenu()) {
 			case Add: // 머리노드 삽입
 				data = rand.nextInt(20);
-				//double d = Math.random();
-				//data = (int) (d * 50);
+				// double d = Math.random();
+				// data = (int) (d * 50);
 				l.Add(data);
 				break;
 			case Delete: // 머리 노드 삭제
